@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tribute</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <!-- 1. As a user, I want my tribute page to have an element with a corresponding id="main",
+    which contains all other elements. -->
+    <div id="main" class="align-items-center">
+        <div class="navbar nav-sticky">
+            <div class="container flex align-items-center">
+                
+                <!-- 2. As a user, I want to see an element with a corresponding id="title", 
+                which contains a string(i.e. text) that describes the subject of the
+                tribute page (e.g. "Steve Jobs"). -->
+                <span id="title">FACEBOOK</span>
+                <div class="navbar-nav ml-auto">
+                    <a href="#home" class="nav-item nav-link active target">Home</a>
+                    <a href="#about" class="nav-item nav-link target">About</a>
+                    <a href="#slideshow" class="nav-item nav-link target">Facts</a>
+                    <a href="#" class="nav-item nav-link target">Partners</a>
+                </div>
+            </div>
+        </div>
+        <div class="header" id="home">
+            <div class="container">
+
+                <!-- 3. As a user, I want to see a div element with a corresponding id="img-div". -->
+                <div id="img-div" class="flex align-items-center">
+                    <div class="w-half">
+                        <div class="header-text">
+                            <h1>MARK ZUCKERBERG</h1>
+
+                            <!-- 5. As a user, I want to see an element with a corresponding id="img-caption"
+                            that contains text context describing the image show in img-div. -->
+                            <p id="img-caption">
+                                "Sometimes we are going to do stuff that's controversial, and we're going to make mistakes.
+                                We have to be willing to take risks".
+                            </p>
+
+                            <div>
+
+                                <!-- 7. As a user, I want to see an element with a corresponding id="tribute-link", which links
+                                to an outside site that contains additional information about the subject of the tribute page. -->
+                                <a id="tribute-link" class="btn" target="_blank" href="https://www.biography.com/business-figure/mark-zuckerberg">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-half">
+
+                        <!-- 4. As a user, I want to see an img element with a corresponding id="image" within
+                        the 'img-div' element. -->
+                        <!-- 8. As a user, I want the img element to be responsive to resizing, relative to the
+                             width of its parent element.-->
+                        <!-- 9. As a user, I want the img element to be centered within its parent element. -->
+                        <img id="image" class="center-image" src="images/mark.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="about">
+            <div class="container flex">
+                <div class="flex align-items-center">
+                    <div class="w-half">
+                        <img class="center-image" src="images/smiley-mark.png" />
+                    </div>
+                    <div class="w-half">
+                        <div class="section-header">
+                            <h2>Who is Mark Zuckerberg?</h2>
+
+                            <!-- 6. As a user, I want to see an element with a corresponding id="tribute-info" which contains text
+                            content describing the subject of the tribute page.  -->
+                            <p id="tribute-info">
+                                Mark Elliot Zuckerberg is an American media magnate, internet entrepreneur, and philanthropist. 
+                                He is known for co-founding Facebook, Inc. and serves as its chairman, chief executive officer, 
+                                and controlling shareholder.
+                            </p>
+                            <p>
+                                On February 4, 2004, Zuckerberg launched Facebook from his Harvard dormitory room. 
+                                An earlier inspiration for Facebook may have come from Phillips Exeter Academy, the 
+                                prep school from which Zuckerberg graduated in 2002. It published its own student 
+                                directory, "The Photo Address Book", which students referred to as "The Facebook". 
+                            </p>
+                            <p>
+                                Mark Zuckerberg co-founded the social-networking website Facebook out of his college dorm 
+                                room at Harvard University. Zuckerberg left college after his sophomore year to concentrate 
+                                on the site, the user base of which has grown to more than two billion people, making 
+                                Zuckerberg a billionaire many times over. The birth of Facebook was portrayed in the 2010 
+                                film The Social Network.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slideshow">
+            <div class="container flex">
+                <div class="flex align-items-center">
+                    <div class="w-half">
+                        <div class="section-header">
+                            <h2 id="slideshow-title">Who is Mark Zuckerberg?</h2>
+                            <p id="slideshow-content">
+                                On February 4, 2004, Zuckerberg launched Facebook from his Harvard dormitory room. 
+                                An earlier inspiration for Facebook may have come from Phillips Exeter Academy, the 
+                                prep school from which Zuckerberg graduated in 2002. It published its own student 
+                                directory, "The Photo Address Book", which students referred to as "The Facebook". 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-half">
+                        <div class="slideshow-container">
+                            <div class="slides fade">
+                                <img class="slide-img" src="images/graduate.jpg">
+                            </div>
+                        
+                                <div class="slides fade">
+                                <img class="slide-img" src="images/facebook-party.jpg">
+                            </div>
+                        
+                            <div class="slides fade">
+                                <img class="slide-img" src="images/marriage.jpeg">
+                            </div>
+                        
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        </div>
+                        <div class="text-center">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="quick-facts">
+            <div class="container">
+                <div class="flex align-items-center">
+                    <div class="w-one-third">
+                        <div class="section-header text-center">
+                            <p class="semi-title">HISTORY OF FACEBOOK</p>
+                            <hr>
+                            <h2>From BASIC to Global Giant</h2>
+                        </div>
+                        <div class="flex">
+                            <div class="quick-facts-item">
+                                <h3>Dropped out of Harvard</h3>
+                                <p>
+                                    Zuckerberg dropped out of Harvard in his second year to pursue his winning idea 
+                                    and it has obviously paid off. According to Forbes he is worth US$78.3 billion, 
+                                    making him the fourth richest person in the world.
+                                </p>
+                            </div>
+                            <div class="quick-facts-item active">
+                                <h3>Facebook IPO  raised $16 billion</h3>
+                                <p>
+                                    In May 2012, Facebook had its initial public offering, which raised $16 billion, 
+                                    making it the biggest Internet IPO in history.
+                                </p>
+                            </div>
+                            <div class="quick-facts-item">
+                                <h3>Married Priscilla Chan</h3>
+                                <p>
+                                    Zuckerberg has been married to Priscilla Chan, a Chinese-American medical student 
+                                    he met at Harvard, since 2012. The longtime couple tied the knot one day after 
+                                    Facebook’s IPO.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="quick-facts-item">
+                                <h3>Dropped out of Harvard</h3>
+                                <p>
+                                    Zuckerberg dropped out of Harvard in his second year to pursue his winning idea 
+                                    and it has obviously paid off. According to Forbes he is worth US$78.3 billion, 
+                                    making him the fourth richest person in the world.
+                                </p>
+                            </div>
+                            <div class="quick-facts-item">
+                                <h3>Facebook IPO  raised $16 billion</h3>
+                                <p>
+                                    In May 2012, Facebook had its initial public offering, which raised $16 billion, 
+                                    making it the biggest Internet IPO in history.
+                                </p>
+                            </div>
+                            <div class="quick-facts-item">
+                                <h3>Married Priscilla Chan</h3>
+                                <p>
+                                    Zuckerberg has been married to Priscilla Chan, a Chinese-American medical student 
+                                    he met at Harvard, since 2012. The longtime couple tied the knot one day after 
+                                    Facebook’s IPO.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer flex">
+            <div class="container flex align-items-center">
+                <div class="copyright">
+                    <p>Developed by Fritz Gerald Dumdum @ Avion School © 2021</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $('.target').click(function () {
+        $('.target').removeClass('active')
+        $(this).addClass("active")
+    })
+
+    $(window).scroll(function () {
+        let scroll = $(window).scrollTop()
+        let navbar = $('.navbar')[0]
+
+        navbar.style.top = '0'
+        
+        
+        clearTimeout($.data(this, 'scrollTimer'))
+        $.data(this, 'scrollTimer', setTimeout(function() {
+            navbar.style.top =  '-70px'
+        }, 2000))
+    })
+
+    let slideIndex = 1
+
+    $(window).on('load', function () {
+        showSlides(slideIndex)
+        autoSlide()
+    })
+
+    function plusSlides (n) {
+        showSlides(slideIndex += n)
+    }
+
+    function currentSlide (n) {
+        showSlides(slideIndex = n)
+    }
+
+    function showSlides (n) {
+        let i
+        let slides = $('.slides')
+        let dots = $('.dot')
+        let slideData = [{
+            title: 'Dropped out of Harvard',
+            content: `Twelve years after dropping out of Harvard University, Mark Zuckerberg, 
+            the founder and CEO of Facebook, finally has a college degree from his old university. 
+            Zuckerberg, who left college in 2005 after his sophomore year to build his infant 
+            social media platform into the multibillion-dollar company it's become, received an 
+            honorary degree from Harvard on Thursday. And although the tech mogul never officially 
+            graduated himself, he was the featured speaker during Harvard's afternoon commencement 
+            ceremony. As graduates and their families huddled under ponchos and umbrellas in a muddy, 
+            wet Harvard Yard, Zuckerberg began his speech by congratulating the class of 2017 and 
+            cracking a couple of jokes about his own dropout status. "I am honored to be here with 
+            you today because let's face it, you accomplished something I never could," said 
+            Zuckerberg, although it's worth pointing out his current net worth is $63 billion — that's 
+            close to double the Harvard endowment.`
+        }, {
+            title: 'Facebook IPO raised $16 billion',
+            content: `Facebook, the world’s largest social network, holds its initial public offering 
+            (IPO) and raises $16 billion. It was the largest technology IPO in American history to 
+            that date, and the third-largest IPO ever in the United States, after those of Visa and 
+            General Motors. At the time it went public, Facebook was valued at $104 billion and had 
+            some 900 million registered users worldwide. As the site’s user base grew rapidly and 
+            its functionality expanded (the “news feed” was added in 2006 and the “like” feature in 2009), 
+            Facebook helped change how people communicate and share information. During the 2008 U.S. 
+            presidential race, Barack Obama used Facebook to build a following, especially among young 
+            voters, a constituency that helped him win the White House. Additionally, during the political 
+            uprisings in the Middle East that began in late 2010 and came to be called the Arab Spring, 
+            activists used Facebook (and other social media tools, notably Twitter) to share photos and 
+            videos of atrocities their governments were committing against citizens, and also to 
+            organize protest events. `
+        }, {
+            title: 'Married Priscilla Chan',
+            content: `Facebook CEO Mark Zuckerberg may not have gotten an undergrad degree out of Harvard,
+            but he has his time at the university to thank for his wife, Priscilla Chan. The couple met in 
+            2003 at a frat party, and tied the knot in 2012, one day after Facebook's IPO. In the span of 
+            their relationship, Zuckerberg has continued to run Facebook as the couple founded the Chan 
+            Zuckerberg Initiative, pledged millions to philanthropy efforts, started a family, and traveled 
+            on vacations abroad all while buying up big properties in California, Lake Tahoe, and Hawaii. 
+            Here's everything you need to know about the Zuckerbergs, who have been together for nearly 17 
+            years and have two children together.`
+        }]
+
+        let currentSlide = slideIndex <= slides.length ? slideData[slideIndex - 1] : slideData[0]
+
+        $('#slideshow-title').text(currentSlide.title)
+        $('#slideshow-content').text(currentSlide.content)
+
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = 'none'
+        }
+
+        for (i = 0; i < dots.length; i++) {
+            dots.eq(i).className = dots.eq(i).removeClass('active')
+        }
+
+        slides[slideIndex-1].style.display = 'block'
+        dots.eq(slideIndex-1).addClass('active')
+    }
+
+    function autoSlide () {
+        setInterval(function () {
+            let slides = $('.slides')
+
+            slideIndex = slideIndex > slides.length ? 1 : slideIndex
+            slideIndex++
+
+            showSlides(slideIndex)
+        }, 8000)
+    }
+</script>
+</html>
