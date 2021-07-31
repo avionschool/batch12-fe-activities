@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tribute</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -22,7 +22,7 @@
                 <!-- 2. As a user, I want to see an element with a corresponding id="title", 
                 which contains a string(i.e. text) that describes the subject of the
                 tribute page (e.g. "Steve Jobs"). -->
-                <span id="title">FACEBOOK</span>
+                <span id="title">FACEBOOK - CEO</span>
                 <div class="navbar-nav">
                     <a href="#home" class="nav-item nav-link active target">Home</a>
                     <a href="#about" class="nav-item nav-link target">About</a>
@@ -38,21 +38,14 @@
                 <div id="img-div" class="flex align-items-center">
                     <div class="w-half">
                         <div class="header-text">
-                            <h1>MARK ZUCKERBERG</h1>
+                            <h1 class="typewriter">MARK ZUCKERBERG</h1>
 
                             <!-- 5. As a user, I want to see an element with a corresponding id="img-caption"
                             that contains text context describing the image show in img-div. -->
                             <p id="img-caption">
-                                "Sometimes we are going to do stuff that's controversial, and we're going to make mistakes.
-                                We have to be willing to take risks".
+                                "The biggest risk is not taking any risk... In a world that is changing really quickly,
+                                the only strategy that is guaranteed to fail is not taking risks."
                             </p>
-
-                            <div>
-
-                                <!-- 7. As a user, I want to see an element with a corresponding id="tribute-link", which links
-                                to an outside site that contains additional information about the subject of the tribute page. -->
-                                <a id="tribute-link" class="btn" target="_blank" href="https://www.biography.com/business-figure/mark-zuckerberg">READ MORE</a>
-                            </div>
                         </div>
                     </div>
                     <div class="w-half">
@@ -232,6 +225,18 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="flex align-items-center">
+                <div class="w-one-third">
+                    <div class="section-header text-center">
+
+                            <!-- 7. As a user, I want to see an element with a corresponding id="tribute-link", which links
+                            to an outside site that contains additional information about the subject of the tribute page. -->
+                            <a id="tribute-link" class="btn" target="_blank" href="https://www.biography.com/business-figure/mark-zuckerberg">READ MORE ARTICLE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="footer flex">
             <div class="container flex align-items-center">
                 <div class="copyright">
@@ -333,7 +338,7 @@
         $('#slideshow-title').text(currentSlide.title)
         $('#slideshow-content').text(currentSlide.content)
         $('#slideshow').css({
-            'background': `linear-gradient(to right, rgba(247, 202, 201, 0.7) -70%, #fff 75%, #fff 100%), url(${currentSlide.backgroundImage})`
+            'background': `linear-gradient(to right, rgba(247, 202, 201, 0.7) -70%, #fff 100%, #fff 50%), url(${currentSlide.backgroundImage})`
         })
 
         if (n > slides.length) {

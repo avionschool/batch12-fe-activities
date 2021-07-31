@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    --typewriterSpeed: 4s;
+    --typewriterCharacters: 15;
+}
+
 @-webkit-keyframes fade {
     from {opacity: .4}
     to {opacity: 1}
@@ -13,6 +18,25 @@
 @keyframes fade {
     from {opacity: .4}
     to {opacity: 1}
+}
+
+@keyframes typewriter {
+    to { 
+        left: 100%; 
+    }
+}
+
+@keyframes blink {
+    to { 
+        background: transparent;
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #main {
@@ -30,6 +54,16 @@
 
 .text-center {
     text-align: center !important;
+}
+
+#tribute-link {
+    color: #fff !important
+}
+
+#tribute-link:hover {
+    outline: 2px solid #343148;
+    background: #fff;
+    color: #343148 !important;
 }
 
 #image {
@@ -116,6 +150,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     min-width: 100%;
+    position: relative;
 }
 
 .header {
@@ -160,23 +195,25 @@
     justify-content: center;
     flex-direction: column;
     padding: 0 70px;
-    margin-top: -250px;
 }
 
 .header .header-text h1 {
     color: #343148;
     font-size: 60px;
     font-weight: 700;
-    margin-bottom: 20px;
 }
 
 #img-caption {
-    margin-bottom: 60px;
+    padding: 30px 0;
     font-style: italic;
-}
-
-.header-text p {
-    margin-bottom: 50px;
+    font-size: 25px;
+    line-height: 40px !important;
+    opacity: 0;
+    transform: translateY(3rem);
+    animation: 
+        fadeInUp 2s ease 
+        calc(var(--typewriterSpeed) + 1s) forwards;
+    color: #343148;
 }
 
 .w-half {
@@ -201,7 +238,6 @@
 
 #img-div {
     height: 100vh;
-    padding-top: 180px;
 }
 
 .section-header {
@@ -373,4 +409,35 @@ hr {
 
 #facts {
     padding-top: 0px !important;
+}
+
+.typewriter {
+    position: relative;
+    width: max-content;
+}
+
+.typewriter::before,
+.typewriter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.typewriter::before {    
+    background: #F7CAC9;
+    animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+.typewriter::after {
+    width: 0.125em;
+    background: #343148;
+    animation: 
+        typewriter 
+        var(--typewriterSpeed) 
+        steps(var(--typewriterCharacters)) 1s forwards,
+        blink 1s
+        steps(var(--typewriterCharacters)) infinite;
 }
