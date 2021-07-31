@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Survey Form</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrap-container">
+
+                <!-- 3. As a user, I want to see a form with id="survey-form" -->
+                <form class="form" action="">
+                    <div class="header-info">
+                        <!-- 1. As a user, I want to see a title with id="title" in H1 sized text -->
+                        <h1 id="title">Survey Form</h1>
+
+                        <!-- 2. As a user, I want to see a short explanation with id="description" in P sized text -->
+                        <p id="description">Your information will be confidential</p>
+                    </div>
+
+                    <!-- 10. For the name, email and number input fields inside the form I can see
+                    corresponding labels that describes the purpose of each field with the
+                    following ids: id="name-label", id="email-label", id="number-label" -->
+                    <!-- 11. For the name, email and number fields, I want to see a placeholder text that gives me
+                    a description or instructions for each field. -->
+                    <div class="wrap">
+                        <label id="name-label" for="name">Full name</label>
+
+                        <!-- 4. As a user, I want to be required to enter my name in a field with id="name".
+                        (Inside form element) - REQUIRED NOT YET IMPLEMENTED -->
+                        <input required class="field-focus" id="name" type="text" name="name" placeholder="Enter your name...">
+                        <span class="focus-border">
+                            <i></i>
+                        </span>
+                    </div>
+                    <div class="wrap">
+
+                        <!-- 6. As a user, I want to see a validation error if I enter an email that is not formatted
+                        correctly. -->
+                        <label id="email-label" for="email">Email Address</label>
+
+                        <!-- 5. As a user, I want to be required to enter my email in a field with id="email".
+                        (Inside form element) - REQUIRED NOT YET IMPLEMENTED -->
+                        <input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required class="field-focus" id="email" type="email" name="email" placeholder="Enter your email...">
+                        <span class="focus-border">
+                            <i></i>
+                        </span>
+                    </div>
+                    <div class="wrap">
+                        <label id="number-label" for="number">Age</label>
+
+                        <!-- 7. As a user, I should be able to enter a number in a field with id="number" -->
+                        <!-- 8. As a user, if I enter non-numbers in the number input, I want to see an HTML5 validation error -->
+                        <!-- 9. As a user, if I enter numbers outside the range of the number input, which are defined
+                        by the min and max attributes, I will see an HTML5 validation error -->
+                        <input class="field-focus" id="number" type="text" name="email" placeholder="Enter your age...">
+                        <span class="focus-border">
+                            <i></i>
+                        </span>
+                    </div>
+
+                    <!-- 12. Inside the form element, I want a select option from a dropdown that has a corresponding
+                    id="dropdown" -->
+                    <div class="wrap">
+                        <label class="field-label" for="dropdown">Select</label>
+                        <div>
+                            <select id="dropdown">
+                                <option value="1">Select</option>
+                                <option value="2">Select</option>
+                            </select>  
+                            <span class="custom-arrow"></span>
+                        </div>                      
+                    </div>
+
+                    <!-- 13. Inside the form element, I want to select a field from one or more groups of radion buttons.
+                    Each group should be grouped using the name attribute -->
+                    <div class="wrap">
+                        <label class="field-label" for="gender">Gender</label>
+                        <div id="genders">
+                            <input id="male" type="radio" name="gender">
+                            <label class="radio" for="male">Male</label>
+                            <input id="female" type="radio" name="gender">
+                            <label class="radio" for="female">Female</label>
+                        </div>
+                    </div>
+
+                    <!-- 14. Inside the form element, I want to select several fields from a series
+                    of checkboxes, each of which must have a value attribute.-->
+                    <div class="wrap no-border">
+                        <fieldset class="group"> 
+                            <legend>Hobbies</legend> 
+                            <ul class="checkbox"> 
+                                <li>
+                                    <input class="checkbox" id="reading" type="checkbox" name="hobbies">
+                                    <label for="reading">Reading</label>
+                                </li>
+                                <li>
+                                    <input class="checkbox" id="traveling" type="checkbox" name="hobbies">
+                                    <label for="traveling">Traveling</label>
+                                </li>
+                                <li>
+                                    <input class="checkbox" id="fishing" type="checkbox" name="hobbies">
+                                    <label for="fishing">Fishing</label>
+                                </li>
+                                <li>
+                                    <input class="checkbox" id="crafting" type="checkbox" name="hobbies">
+                                    <label for="crafting">Crafting</label>
+                                </li>
+                                <li>
+                                    <input class="checkbox" id="television" type="checkbox" name="hobbies">
+                                    <label for="television">Television</label>
+                                </li>
+                                <li>
+                                    <input class="checkbox" id="bird-watch" type="checkbox" name="hobbies">
+                                    <label for="bird-watch">Bird Watch</label>
+                                </li>
+                                <li>
+                                    <input class="checkbox" id="collecting" type="checkbox" name="hobbies">
+                                    <label for="collecting">Collecting</label>
+                                </li>
+                                <li>
+                                    <input class="checkbox" id="music" type="checkbox" name="hobbies">
+                                    <label for="music">Music</label>
+                                </li>
+                                <li>
+                                    <input class="checkbox" id="gardening" type="checkbox" name="hobbies">
+                                    <label for="gardening">Gardening</label>
+                                </li>
+                                <li>
+                                    <input class="checkbox" id="video-games" type="checkbox" name="hobbies">
+                                    <label for="video-games">Video Games</label>
+                                </li>
+                            </ul> 
+                        </fieldset> 
+                    </div>
+
+                    <!-- 15. Inside the form element, I want to see a textarea at the end for additional comments. -->
+                    <div class="wrap full">
+                        <label class="field-label" for="comment">Comment</label>
+                        <textarea class="field-focus" name="comment" id="comment" cols="30" rows="5" placeholder="Write a comment..."></textarea>
+                        <span class="focus-border">
+                            <i></i>
+                        </span>
+                    </div>
+
+                    <!-- 16. Inside the form element, I want to see a button with id="submit" to submit all my inputs -->
+                    <!-- 17. I can submit my inputsto the address bar -->
+                    <button type="submit" id="submit">Submit</button>
+                </form>
+                <div class="container-img">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
