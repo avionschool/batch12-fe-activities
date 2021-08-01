@@ -28,24 +28,26 @@
 }
 
 .form {
-    width: 560px;
+    width: 620px;
     min-height: 100vh;
     display: block;
     padding: 20px 55px 55px;
 }
 
-.container-img {
-    width: calc(100% - 560px);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    z-index: 1;
-    padding: 30px 15px 0;
-    max-width: 100%;
-    height: auto;
-    object-position: center;
-    background-image: url(background.jpg);
+@media (min-width: 620px) {
+    .container-img {
+        width: calc(100% - 620px);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        z-index: 1;
+        padding: 30px 15px 0;
+        max-width: 100%;
+        height: auto;
+        object-position: center;
+        background-image: url(background.jpg);
+    }
 }
 
 .container-img::before {
@@ -66,6 +68,7 @@
     position: relative;
     border: 1px solid #e6e6e6;
     margin-bottom: 20px;
+    border-radius: 5px;
 }
 
 .half {
@@ -77,11 +80,11 @@
     color: #666;
     line-height: 1.2;
     text-transform: uppercase;
-    padding: 15px 0 2px 15px;
+    padding: 15px 0 2px 8px;
     font-weight: 600;
 }
 
-#name, #email, #number, #genders, #dropdown {
+#name, #email, #number, #genders {
     height: 48px;
     display: flex;
     width: 100%;
@@ -99,12 +102,12 @@ input {
 }
 
 .header-info {
-    padding: 30px;
+    padding: 10px;
     text-align: center;
 }
 
 #description {
-    padding: 25px 0;
+    padding: 10px 0 35px 0;
 }
 
 select {
@@ -121,6 +124,7 @@ select {
     grid-template-columns: min-content auto;
     grid-gap: 1.5em;
     padding: 5px;
+    font-size: 14px !important;
 }
 
 textarea {
@@ -183,9 +187,10 @@ fieldset.group  {
     margin: 0; 
     padding: 0; 
     margin-bottom: 1.25em; 
+    margin-top: -10px;
     padding: .125em; 
     border: 1px solid #e6e6e6;
-    border-radius: 10px;
+    border-radius: 5px;
 } 
   
 fieldset.group legend { 
@@ -210,7 +215,7 @@ ul.checkbox li {
     display: flex;
     align-items: center;
     padding: 3px;
-    color: #666;
+    color: #404b46;
 } 
 
 ul.checkbox li input { 
@@ -274,4 +279,126 @@ ul.checkbox li label {
 .field-focus:focus ~ .focus-border i:after{
     height: 100%; 
     transition: 0.4s;
+}
+  
+.custom-select select {
+    display: none !important; 
+}
+  
+.select-selected {
+    color: #404b46;
+}
+  
+.select-selected:after {
+    position: absolute;
+    content: "";
+    right: 25px;
+    bottom: 15px;
+    border: 6px solid transparent;
+    border-color: #404b46 transparent transparent transparent;
+}
+  
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #404b46 transparent;
+    right: 25px;
+    bottom: 22px;
+}
+  
+.select-items div, .select-selected {
+    padding: 14px 15px 14px 15px;
+    cursor: pointer;
+    user-select: none;
+}
+  
+.select-items {
+    position: absolute;
+    background-color: #fff;
+    color: #404b46 !important;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    margin-top: 5px;
+    box-shadow: 0 3px 10px 0 rgb(0 0 0 / 25%) !important;
+    border-radius: 5px;
+}
+  
+.select-hide {
+    display: none;
+}
+  
+.select-items div:hover, .same-as-selected {
+    background-color: #6675df;
+    color: #fff !important;
+}
+
+.select-items div:first-child:hover {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.select-items div:last-child:hover {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.container-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 23px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-bottom: 7px;
+}
+  
+.container-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    background-color: #eee;
+    border: rgb(235, 227, 227) 1px solid;
+}
+  
+.container-checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+  
+.container-checkbox input:checked ~ .checkmark {
+    background-color: #6675df;
+}
+  
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.container-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+.container-checkbox .checkmark:after {
+    top: 2px;
+    right: 5px;
+    width: 3px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
