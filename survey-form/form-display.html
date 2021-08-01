@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Survey Form</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container padding-50 bg-gray">
+            <div class="form-container bg-white">
+                <form id="form-display" class="form" action="test.php" method="GET">
+                    <div class="header-info">
+                        <h1 id="title">Survey Form</h1>
+                        <p id="description">Your information will be confidential</p>
+                    </div>
+                    <div class="wrap">
+                        <label class="field-label">Full name</label>
+                        <input id="name" type="text" disabled placeholder="No Full name">
+                    </div>
+                    <div class="wrap">
+                        <label class="field-label">Email Address</label>
+                        <input id="email" type="text" disabled placeholder="No Email Address">
+                    </div>
+
+                    <div class="wrap">
+                        <label class="field-label">Age</label>
+                        <input id="age" type="text" disabled placeholder="No age">
+                    </div>
+                    <div class="wrap">
+                        <label class="field-label">University</label>
+                        <input id="university" type="text" disabled placeholder="No university">
+                    </div>
+                    <div class="wrap no-border">
+                        <fieldset class="group"> 
+                            <legend>Hobbies</legend> 
+                            <ul class="checkbox"> 
+                                <label class="container-checkbox">Reading
+                                    <input disabled type="checkbox" id="reading"  value="reading" type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container-checkbox">Traveling
+                                    <input disabled id="traveling" value="traveling" type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container-checkbox">Fishing
+                                    <input disabled id="fishing" value="fishing" type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container-checkbox">Coding
+                                    <input disabled id="coding" value="coding" type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container-checkbox">Television
+                                    <input disabled id="television" value="television" type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container-checkbox">Video Games
+                                    <input disabled id="video-games" value="video-games" type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container-checkbox">Collecting
+                                    <input disabled id="collecting" value="collecting" type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container-checkbox">Music
+                                    <input disabled id="music" value="music" type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </ul> 
+                        </fieldset> 
+                    </div>
+                    <div class="wrap">
+                        <label class="field-label">Gender</label>
+                        <input id="gender" type="text" disabled placeholder="No university">
+                    </div>
+                    <div class="wrap full">
+                        <label class="field-label" for="comment">Comment</label>
+                        <textarea id="comment" disabled class="field-focus" name="comment" id="comment" cols="30" rows="4" placeholder="No comment..."></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+<script>
+    let urlSearchParams = new URLSearchParams(window.location.search)
+    let params = Object.fromEntries(urlSearchParams.entries())
+
+    if (params.hasOwnProperty('hobbies')) {
+        let hobbies = params.hobbies.split(',')
+        let selectOptions = document.querySelectorAll('input[type=checkbox]')
+
+        for (let i = 0; i < selectOptions.length; i++) {
+            if (hobbies.includes(selectOptions[i].value)) {
+                selectOptions[i].checked = true
+            } 
+        }
+    }
+
+    String.prototype.capitalize = function() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    }
+
+    document.getElementById('name').value = params.name
+    document.getElementById('email').value = params.email
+    document.getElementById('age').value = params.age
+    document.getElementById('university').value = params.university == 0 ? '' : params.university
+    document.getElementById('gender').value = params.gender.capitalize()
+    document.getElementById('comment').value = params.comment
+</script>
+</html>
