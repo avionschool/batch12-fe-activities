@@ -34,6 +34,10 @@
     padding: 20px 55px 55px;
 }
 
+.form-display {
+    padding: 145px 55px 25px 55px;
+}
+
 @media (min-width: 620px) {
     .container-img {
         width: calc(100% - 620px);
@@ -84,7 +88,7 @@
     font-weight: 600;
 }
 
-#name, #email, #number, #genders {
+input[type=text], #name, #email, #number, #genders {
     height: 48px;
     display: flex;
     width: 100%;
@@ -401,4 +405,26 @@ ul.checkbox li label {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+.form-container {
+    width: 800px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-gray {
+    background: #e6e6e6 !important;
+}
+
+.bg-white {
+    background: #fff !important;
+}
+
+.padding-50 {
+    padding: 50px !important;
 }
