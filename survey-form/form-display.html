@@ -13,8 +13,8 @@
             <div class="form-container bg-white">
                 <form id="form-display" class="form" action="test.php" method="GET">
                     <div class="header-info">
-                        <h1 id="title">Survey Form</h1>
-                        <p id="description">Your information will be confidential</p>
+                        <h1 id="title">Result Form</h1>
+                        <p id="description">Thank you for submitting your entry.</p>
                     </div>
                     <div class="wrap">
                         <label class="field-label">Full name</label>
@@ -35,38 +35,38 @@
                     </div>
                     <div class="wrap no-border">
                         <fieldset class="group"> 
-                            <legend>Hobbies</legend> 
+                            <legend>Languages</legend> 
                             <ul class="checkbox"> 
-                                <label class="container-checkbox">Reading
-                                    <input disabled type="checkbox" id="reading"  value="reading" type="checkbox">
+                                <label class="container-checkbox">Java
+                                    <input disabled type="checkbox" id="java"  value="java" type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="container-checkbox">Traveling
-                                    <input disabled id="traveling" value="traveling" type="checkbox">
+                                <label class="container-checkbox">Python
+                                    <input disabled id="python" value="python" type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="container-checkbox">Fishing
-                                    <input disabled id="fishing" value="fishing" type="checkbox">
+                                <label class="container-checkbox">C
+                                    <input disabled id="c" value="c" type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="container-checkbox">Coding
-                                    <input disabled id="coding" value="coding" type="checkbox">
+                                <label class="container-checkbox">Ruby Javascript
+                                    <input disabled id="ruby-javascript" value="ruby-javascript" type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="container-checkbox">Television
-                                    <input disabled id="television" value="television" type="checkbox">
+                                <label class="container-checkbox">C#
+                                    <input disabled id="c#" value="c#" type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="container-checkbox">Video Games
-                                    <input disabled id="video-games" value="video-games" type="checkbox">
+                                <label class="container-checkbox">PHP
+                                    <input disabled id="php" value="php" type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="container-checkbox">Collecting
-                                    <input disabled id="collecting" value="collecting" type="checkbox">
+                                <label class="container-checkbox">Objective-C
+                                    <input disabled id="objective-c" value="objective-c" type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="container-checkbox">Music
-                                    <input disabled id="music" value="music" type="checkbox">
+                                <label class="container-checkbox">SQL
+                                    <input disabled id="sql" value="sql" type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
                             </ul> 
@@ -77,8 +77,8 @@
                         <input id="gender" type="text" disabled placeholder="No university">
                     </div>
                     <div class="wrap full">
-                        <label class="field-label" for="comment">Comment</label>
-                        <textarea id="comment" disabled class="field-focus" name="comment" id="comment" cols="30" rows="4" placeholder="No comment..."></textarea>
+                        <label class="field-label" for="comment">Experience</label>
+                        <textarea id="comment" disabled class="field-focus" name="comment" id="comment" cols="30" rows="4" placeholder="No experience.."></textarea>
                     </div>
                 </form>
             </div>
@@ -88,12 +88,12 @@
     let urlSearchParams = new URLSearchParams(window.location.search)
     let params = Object.fromEntries(urlSearchParams.entries())
 
-    if (params.hasOwnProperty('hobbies')) {
-        let hobbies = params.hobbies.split(',')
+    if (urlSearchParams.has('language')) {
+        let language = urlSearchParams.getAll('language')
         let selectOptions = document.querySelectorAll('input[type=checkbox]')
 
         for (let i = 0; i < selectOptions.length; i++) {
-            if (hobbies.includes(selectOptions[i].value)) {
+            if (language.includes(selectOptions[i].value)) {
                 selectOptions[i].checked = true
             } 
         }
@@ -103,9 +103,9 @@
         return this.charAt(0).toUpperCase() + this.slice(1);
     }
 
-    document.getElementById('name').value = params.name
-    document.getElementById('email').value = params.email
-    document.getElementById('age').value = params.age
+    document.getElementById('name').value = urlSearchParams.get('name')
+    document.getElementById('email').value = urlSearchParams.get('email')
+    document.getElementById('age').value = urlSearchParams.get('age')
     document.getElementById('university').value = params.university == 0 ? '' : params.university
     document.getElementById('gender').value = params.gender.capitalize()
     document.getElementById('comment').value = params.comment
