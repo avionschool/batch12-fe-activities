@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #73AA8E;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(8, [col] 10vh);
+    grid-template-rows: repeat(8, [row] 10vh);
+    border: 20px solid #2A351F;
+    box-shadow: 0 5px 8px #777;
+    margin: 0 auto;
+    background-color: #EEEDD3;
+}
+
+.dark {
+    background-color: #779558 !important;
+}
+
+.box {
+    display: flex;
+    font-size: calc(5vh);
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+    cursor: pointer;
+}

@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+}
+
+#main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #73AA8E;
+}
+
+.container {
+    border: 1px solid black;
+    border: 20px solid #2A351F;
+    box-shadow: 0 5px 8px #777;
+}
+
+.row {
+    display: flex;
+}
+
+.items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(10vh);
+    height: calc(10vh);
+    font-size: calc(5vh);
+    background-color: #EEEDD3;
+}
+
+.dark {
+    background-color: #779558;
+}
+
+span {
+    cursor: pointer;
+}
