@@ -370,7 +370,8 @@ p {
 
 form {
     background: #fff;
-    padding: 20px 30px 30px 30px;
+    padding: 20px 30px 35px 30px;
+    border-bottom: 1px solid #dfdfdf !important;
 }
 
 input, textarea {
@@ -541,7 +542,7 @@ ul {
 .img-4 {
     position: absolute;
     z-index: -1;
-    bottom: 27%;
+    bottom: 55%;
     left: 0;
 }
 
@@ -606,7 +607,7 @@ header {
 
 header h2 {
     letter-spacing: 5px;
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 header ul li {

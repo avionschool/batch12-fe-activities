@@ -85,6 +85,10 @@
     .img-2 {
         z-index: 0 !important;
     }
+
+    .img-11 {
+        display: none !important;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -97,7 +101,7 @@
     }
 
     .contact-form {
-        width: auto !important;
+        width: 100% !important;
     }
 
     .form-area {
