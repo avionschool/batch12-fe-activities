@@ -4,7 +4,7 @@
     }
 
     .video-content {
-        padding: 50px 0 0 0;
+        padding: 50px 0 0 0 !important;
     }
 
     .banner-area h2 {
@@ -43,8 +43,9 @@
         padding-bottom: 50px;
     }
 
-    .service-area .column:nth-child(2) div {
-        width: 100%;
+    .content-right {
+        padding-top: 0 !important;
+        width: 100% !important;
     }
 
     .footer-area p {
@@ -68,20 +69,27 @@
 
     .obtain-container {
         text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     }
 
     .service-area .f-basis-60 div:first-child {
         margin-top: 0 !important;
+    }
+
+    .service-card-box {
+        width: auto !important;
+    }
+
+    .img-2 {
+        z-index: 0 !important;
     }
 }
 
 @media only screen and (max-width: 768px) {
     .row {
         padding: 0 100px !important;
-    }
-
-    .service-card-box {
-        width: auto !important;
     }
 
     .service-card-content {
@@ -113,10 +121,6 @@
         display: inline !important;
         padding-right: 30px !important;
     }
-
-    .content-right {
-        padding-top: 0 !important;
-    }
 }
 
 @media only screen and (max-width: 450px) {
@@ -139,9 +143,5 @@
 
     .expertise-area {
         padding: 60px 0 !important;
-    }
-
-    .img-2 {
-        z-index: 0 !important;
     }
 }

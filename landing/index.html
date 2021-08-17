@@ -6,6 +6,7 @@
         <title>Let's Talk</title>
         
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="assets/css/style.css" rel="stylesheet">
 
         <!-- 14. My product landing page should have at least one media query
@@ -30,6 +31,8 @@
             <header id="header" class="d-flex content-center">
                 <div class="container content-center">
                     <div class="brand">
+                        <!-- 2. As a user, I want to see an image within the header element with a corresponding id="header-img". A company logo would make a good image here. -->
+                        <i class="fa fa-comments-o fa-2x" aria-hidden="true"></i>
                         <h2>TALK</h2>
                     </div>
                     <div class="nav-list">
@@ -192,17 +195,19 @@
                         </div>
                         <div class="column f-basis-60 d-flex content-center">
                             <div class="content-right">
-                                <img src="assets/images/service-2.png" alt="image">
-                                <div class="content">
-                                    <h4>HR solutions</h4>
-                                    <p>We are adamant to bring success with our HR Recruitment, Payroll and other services in order to give a complete solution to your business.</p>
+                                <div>
+                                    <img src="assets/images/service-2.png" alt="image">
+                                    <div class="content">
+                                        <h4>HR solutions</h4>
+                                        <p>We are adamant to bring success with our HR Recruitment, Payroll and other services in order to give a complete solution to your business.</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <img src="assets/images/service-4.png" alt="image">
-                                <div class="content">
-                                    <h4>Company development</h4>
-                                    <p>Our Secretarial Service, which is backed by our legal service wing, helps acquire all types of Licenses & Permits for your business to run seamlessly.</p>
+                                <div>
+                                    <img src="assets/images/service-4.png" alt="image">
+                                    <div class="content">
+                                        <h4>Company development</h4>
+                                        <p>Our Secretarial Service, which is backed by our legal service wing, helps acquire all types of Licenses & Permits for your business to run seamlessly.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -312,7 +317,7 @@
                             <!-- 11. Within the form, I want to see a submit input with a corresponding id="submit" -->
                             <!-- 12. When I click the #submit element, the email is submitted to a static page -->
                             <div class="d-flex">
-                                <a id="submit" class="btn max-width" href="#">
+                                <a id="submit" class="btn max-width" href="javascript:{}">
                                     <span>Send</span>
                                 </a>
                             </div>
@@ -382,6 +387,10 @@
         </div>
     <script>
         let isToggled = false
+        let elements
+        let windowHeight
+        let counter = 0
+        let submit = document.getElementById('submit')
 
         function toggle (target) {
             if (!isToggled) {
@@ -403,8 +412,6 @@
             isToggled = false
         }
 
-        let counter = 0
-
         function execCounter () {
             setInterval (function () {
                 counter += Math.floor(Math.random() * 100)
@@ -418,9 +425,6 @@
                 }
             }, 80)
         }
-
-        let elements
-        let windowHeight
         
         function init () {
             elements =  document.querySelectorAll('.hidden')
@@ -436,6 +440,16 @@
         }
 
         function checkPosition () {
+            let navbar = document.getElementById('header')
+
+            if (window.scrollY === 0) {
+                navbar.classList.remove('nav-scrolled')
+                untoggle()
+                isToggled = false
+            } else {
+                navbar.classList.add('nav-scrolled')
+            }
+
             for (let i = 0; i < elements.length; i++) {
                 let element = elements[i]
                 let positionFromTop = elements[i].getBoundingClientRect().top
@@ -446,22 +460,23 @@
                 }
             }
         }
-        window.addEventListener('scroll', checkPosition)
+
+        function handleSubmit (e) {
+            e.preventDefault()
+            let form = document.getElementById('form')
+
+            if (form.reportValidity()) {
+                HTMLFormElement.prototype.submit.call(form)
+            }
+        }
+
+        submit.addEventListener('click', handleSubmit)
+        window.addEventListener('scroll', checkPosition, false)
         window.addEventListener('resize', init)
-        let submit = document.getElementById('submit')
 
         init()
         checkPosition()
         execCounter()
-
-        function handleSubmit (e) {
-            let form = document.getElementById('form')
-
-            e.preventDefault()
-            form.reportValidity()
-            HTMLFormElement.prototype.submit.call(form)
-        }
-        submit.addEventListener('click', handleSubmit)
     </script>
     </body>
 </html>

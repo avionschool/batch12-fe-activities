@@ -41,7 +41,7 @@ body {
     font-weight: 400;
     font-style: normal;
     letter-spacing: normal;
-    padding-bottom: 80px;
+    padding-bottom: 50px !important;
 }
 
 .banner-area::after {
@@ -60,7 +60,6 @@ body {
     font-size: 15px;
     border-radius: 0;
     color: #fff;
-    padding: 20px 40px;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
@@ -131,7 +130,6 @@ p {
     line-height: 30px;
     opacity: 0.7 !important;
     color: #213053 !important;
-    text-align: justify;
 }
 
 .feature-area span {
@@ -155,6 +153,11 @@ p {
 
 .content-right {
     padding-top: 135px;
+    width: 95%;
+}
+
+.service-area .content-center {
+    align-items: flex-end !important;
 }
 
 .content-area h2 {
@@ -231,9 +234,9 @@ p {
     margin-bottom: 15px !important;
 }
 
-.service-area .column:nth-child(2) div {
+/* .service-area .column:nth-child(2) div {
     width: 85%;
-}
+} */
 
 .content {
     padding-top: 50px;
@@ -593,10 +596,17 @@ header {
     font-style: normal;
     letter-spacing: 1px;
     box-shadow: 0 12px 34px -11px rgb(65 62 101 / 10%);
+    transition: all .5s ease-in-out;
+    top: -80px;
+}
+
+.nav-scrolled {
+    top: 0;
 }
 
 header h2 {
     letter-spacing: 5px;
+    padding-left: 10px;
 }
 
 header ul li {
@@ -638,6 +648,8 @@ header .container {
 
 .brand {
     padding-left: 120px;
+    display: flex;
+    align-items: center;
 }
     
 .bar1, .bar2, .bar3 {
@@ -673,7 +685,7 @@ header .container {
     top: 0;
     left: 0;
     background-color: #fff;
-    padding-top: 82px; 
+    padding-top: 82px !important; 
     transition: 0.5s; 
     overflow: hidden;
 }
@@ -691,7 +703,7 @@ header .container {
 }
   
 .sidenav a {
-    padding: 15px 0 15px 30px;
+    padding: 15px 0 15px 30px !important;
     text-decoration: none;
     font-size: 13px;
     color: #000;
