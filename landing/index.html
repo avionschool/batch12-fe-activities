@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Let's Talk</title>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="assets/css/style.css" rel="stylesheet">
+
+        <!-- 14. My product landing page should have at least one media query
+        - the style.css imports the media.css file for my media queries
+        - navigate to css/media.css to see -->
+
+        <!-- 15. My product landing page should utilize CSS flexbox at least once
+        - the class d-flex uses flex property -->
+    </head>
+    <body>
+        <div id="sidenav" class="sidenav">
+            <a onclick="untoggle()" href="#banner-area">Home</a>
+            <a onclick="untoggle()" href="#service-area">Services</a>
+            <a onclick="untoggle()" href="#expertise-area">Expertise</a>
+            <a onclick="untoggle()" href="#">About</a>
+            <a onclick="untoggle()" href="#">Signup</a>
+        </div>
+        <div class="site-wrapper">
+            <div id="overlay" onclick="untoggle()"></div>
+            <!-- 1. As a user, I want my product landing page to have a header element with a corresponding id="header" -->
+            <!-- 13. The navbar should always be at the top of the viewport -->
+            <header id="header" class="d-flex content-center">
+                <div class="container content-center">
+                    <div class="brand">
+                        <!-- 2. As a user, I want to see an image within the header element with a corresponding id="header-img". A company logo would make a good image here. -->
+                        <i class="fa fa-comments-o fa-2x" aria-hidden="true"></i>
+                        <h2>TALK</h2>
+                    </div>
+                    <div class="nav-list">
+                        <!-- 3. Within the #header element, I want to see a nav element with a corresponding id="nav-bar" -->
+                        <nav id="nav-bar">
+                            <ul class="d-flex">
+                                <!-- 4. I want to see at least three clickable elements inside the nav element, each with a class nav-link -->
+                                <!-- 5. As a user, when I click nav-link button in the nav element, I am taken to corresponding section of the landing page -->
+                                <li class="nav-link"><a href="#banner-area">Home</a></li>
+                                <li class="nav-link"><a href="#service-area">Services</a></li>
+                                <li class="nav-link"><a href="#expertise-area">Expertise</a></li>
+                                <li class="nav-link"><a href="#">About</a></li>
+                                <li class="nav-link"><a href="#">Signup</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="d-flex" id="ham-container">
+                        <div id="hamburger-icon" class="hamburger-icon" onclick="toggle(this)">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div id="banner-area" class="banner-area d-flex">
+                <div class="container d-flex content-center">
+                    <div class="row">
+                        <div class="img-1">
+                            <img class="vertical-move" src="assets/images/image.png" alt="image" width="200" height="200">
+                        </div>
+                        <div class="column"></div>
+                        <div class="column">
+                            <h2>Let’s talk about startups that people like!</h2>
+                            <p>Everyone wants to know the special ingredients needed to make a startup succeed. When dedicating all of your energy, time and financial investment into founding a company, there comes a huge personal drive to make it work no matter what the odds are.</p>
+                            <a class="btn" href="#">
+                                <span>Let's Talk</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="img-2">
+                    <img class="vertical-move" src="assets/images/image-2.png" alt="image" width="280" height="400">
+                </div>
+            </div>
+            <div class="feature-area d-flex hidden">
+                <div class="container d-flex content-center">
+                    <div class="row max-height">
+                        <div class="column d-flex content-center">
+                            <div class="d-flex">
+                                <div>
+                                  <span>01</span>
+                                </div>
+                                <div>
+                                  <h4>Team of experts</h4>
+                                  <p>A team of experts passionate about product management </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column d-flex content-center">
+                            <div class="feature-card d-flex">
+                                <div>
+                                  <span>02</span>
+                                </div>
+                                <div>
+                                  <h4>Friendly Consultants</h4>
+                                  <p>Focused on helping its clients to fill their technical staffing needs by accurately providing </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column d-flex content-center">
+                            <div class="feature-card d-flex">
+                                <div>
+                                  <span>03</span>
+                                </div>
+                                <div>
+                                  <h4>Best Solutions</h4>
+                                  <p>We analyze your website to identify SEO errors, keyword opportunities, and competition </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 6. As a user, I can watch an embedded product video with id="video" -->
+            <div class="video-area d-flex hidden">
+                <div class="container d-flex content-center">
+                    <div class="row">
+                        <div class="column d-flex content-center">
+                            <video controls id="video">
+                                <source src="assets/videos/video.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column d-flex content-center">
+                            <div class="video-content">
+                                <h4>Talks for when you want to start a business</h4>
+                                  <p>
+                                    Starting a business can be exciting and terrifying all at once. You’ve found something you’re passionate about and 
+                                    you want to live and breathe it every day. You want to be your own boss. But equally, taking that first crucial 
+                                    step can feel overwhelming and intimidating. You likely have a million unanswered questions: What if you mess up? 
+                                    What if expectation doesn’t match up to reality? What if you find being a CEO isolating and stressful, rather than rewarding?
+                                    <br><br>
+                                    To help inspire and motivate you to take the plunge, we have collated five TED Talks that all aspiring business owners should watch and learn from.
+                                    </p>
+                                  <a href="https://startupnation.com/start-your-business/ted-talks-inspire-start-business/" target="_blank" class="started-btn">Continue reading</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-area d-flex hidden">
+                <div class="container d-flex content-center">
+                    <div class="row">
+                        <div class="column f-basis-40 d-flex content-center">
+                            <div class="obtain-container">
+                                <h2>Need to know what TALK does?</h2>
+                                <p>Startups come across a lot of ideas about things that might help them grow. 
+                                    It’s important to keep in mind the goal of doing anything connected with so called “growth hacking,” 
+                                    which is to actually grow. </p>
+                                <a class="btn" href="#">
+                                    <span>Explore More</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="column f-basis-60 d-flex content-center">
+                            <div class="content-box">
+                                <div class="d-flex">
+                                    <div class="content-orange">
+                                        <div class="counter-items">
+                                            <div class="counter-content">
+                                                <h2><span class="counter" id="user-counter">1200+</span></h2>
+                                                <p>Our users are all over<br> the world</p>
+                                            </div>
+                                            <div class="counter-content">
+                                                <h2><span class="counter" id="company-counter">600+</span></h2>
+                                                <p>Companies<br> corporate with us</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content-img"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="service-area" class="service-area d-flex hidden">
+                <div class="container d-flex content-center">
+                    <div class="row">
+                        <div class="column f-basis-40 d-flex content-center">
+                            <div>
+                                <h2>We designed our services for results.</h2>
+                            </div>
+                            <div>
+                                <img src="assets/images/service-1.png" alt="image">
+                                <div class="content">
+                                    <h4>IT consulting</h4>
+                                    <p> Our “customer first” philosophy ensures that we provide our clients with “the best IT services and solutions”.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="assets/images/service-3.png" alt="image">
+                                <div class="content">
+                                    <h4>Business analysis</h4>
+                                    <p> We continually invest in the development of our team members and provide a supportive environment in which they can work closely with clients.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column f-basis-60 d-flex content-center">
+                            <div class="content-right">
+                                <div>
+                                    <img src="assets/images/service-2.png" alt="image">
+                                    <div class="content">
+                                        <h4>HR solutions</h4>
+                                        <p>We are adamant to bring success with our HR Recruitment, Payroll and other services in order to give a complete solution to your business.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="assets/images/service-4.png" alt="image">
+                                    <div class="content">
+                                        <h4>Company development</h4>
+                                        <p>Our Secretarial Service, which is backed by our legal service wing, helps acquire all types of Licenses & Permits for your business to run seamlessly.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="expertise-area" class="expertise-area d-flex hidden">
+                <div class="container d-flex content-center">
+                    <div class="row">
+                        <div class="column d-flex content-center">
+                            <div class="">
+                                <div class="">
+                                  <div class="">
+                                    <h2>Our expertise includes digital value chain</h2>
+                                  </div>
+                                  <div class="service-card-content">
+                                    <div class="service-card-area d-flex">
+                                      <div style="position: relative;">
+                                        <img src="assets/images/coins.png" alt="image">
+                                        <div class="img-3">
+                                          <img class="vertical-move" src="assets/images/image-3.png" alt="image">
+                                        </div>
+                                      </div>
+                                      <div class="expertise-box">
+                                        <h4>Investment strategy</h4>
+                                        <p>set of principles designed to help an individual investor achieve their financial and investment goals. 
+                                            This plan is what guides an investor's decisions based on goals, risk tolerance, and future needs for capital. 
+                                            Vary from conservative where they follow a low-risk strategy where the focus is on wealth protection
+                                            while others are highly aggressive.</p>
+                                      </div>
+                                    </div>  
+                                    <div class="">
+                                        <div class="service-card-area d-flex">
+                                            <div style="position: relative;">
+                                                <img src="assets/images/cycling-track.png" alt="image">
+                                                <div class="img-4">
+                                                    <img class="horizontal-move" src="assets/images/image-4.png" alt="image">
+                                                </div>
+                                            </div>
+                                            <div class="expertise-box">
+                                            <h4>Running successful business</h4>
+                                            <p>Thinking about great financial management means investing in the right places. Whether that’s 
+                                                infrastructure, product, marketing, distribution, or human capital, we need to be smart about 
+                                                the areas in which we’re investing to ensure that the company is sustainable in the long run.</p>
+                                        </div>
+                                      </div>  
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column d-flex content-center">
+                            <div class="service-card-box content-center">
+                                <div class="service-l3-card-right">
+                                    <div class="img-11">
+                                        <img class="swing-move" src="assets/images/image-11.png" alt="image">
+                                    </div>
+                                    <h4>Digital strategy &amp; innovation</h4>
+                                    <p>Where does innovation come from? In order to build a sustainable innovation strategy that is also a digital, first, you need 
+                                        to think about all the potential sources accelerating the company’s innovation. 
+                                        <br><br>
+                                        Digital innovation is considered as a priority for most of the companies, but designing tactics to hit the right targets is hard. Moreover,
+                                        many companies even have set up their own digital units (DUs) to tackle the challenges of digitalization. Let’s discuss three important 
+                                        aspects that are worth considering when designing a digital innovation strategy that works.</p>
+                                    <a href="#" class="started-btn">Continue reading</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-area d-flex hidden">
+                <div class="img-5">
+                    <img class="vertical-move" src="assets/images/image-5.png" alt="image">
+                </div>
+                <div class="img-6">
+                    <img class="vertical-move" src="assets/images/image-6.png" alt="image">
+                </div>
+                <div class="img-7">
+                    <img class="spin-move" src="assets/images/image-7.png" alt="image">
+                </div>
+                <div class="img-8">
+                    <img class="spin-move" src="assets/images/image-8.png" alt="image">
+                </div>
+                <div class="img-9">
+                    <img class="spin-move" src="assets/images/image-9.png" alt="image">
+                </div>
+                <div class="img-10">
+                    <img class="vertical-move" src="assets/images/image-10.png" alt="image">
+                </div>
+                <div class="container d-flex content-center">
+                    <div class="contact-form">
+                        <div class="section-heading">
+                            <h2>Ideas are easy. <br>Implementation is hard.</h2>
+                        </div>
+                        <!-- 7. As a user, my landing page should have a form element with a corresponding id="form" -->
+                        <form id="form" action="form.html" method="GET">
+                            <div class="form-group">
+                                <label>Your name</label>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Write your name" required>
+                            </div>
+                            <!-- 8. Within the form, I want to see an input field with id="email" where I can enter an email address -->
+                            <!-- 9. The email input field should have a placeholder text to let the user know what the field is for -->
+                            <!-- 10. The #email input field uses HTML5 validation to confirm that the entered text is an email address -->
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Write your email address" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Business</label>
+                                <input type="text" name="subject" id="subject" class="form-control" placeholder="What is your business?" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea name="message" name="message" rows="5" id="message" class="form-control" placeholder="Add a brief description about the business" required></textarea>
+                            </div>
+                            <!-- 11. Within the form, I want to see a submit input with a corresponding id="submit" -->
+                            <!-- 12. When I click the #submit element, the email is submitted to a static page -->
+                            <div class="d-flex">
+                                <a id="submit" class="btn max-width" href="javascript:{}">
+                                    <span>Schedule Appointment</span>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-area d-flex hidden">
+                <div class="container d-flex">
+                    <div class="row">
+                        <div class="column d-flex content-center">
+                            <div class="d-flex">
+                                <div>
+                                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column d-flex content-center">
+                            <div class="">
+                                <div>
+                                  <h3>Company</h3>
+                                </div>
+                                <div>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Global location</a></li>
+                                        <li><a href="#">Missions</a></li>
+                                        <li><a href="#">Careers </a></li>
+                                        <li><a href="#">Investors </a></li>
+                                        <li><a href="#">News rooms </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column d-flex content-center">
+                            <div class="">
+                                <div>
+                                  <h3>Impact</h3>
+                                </div>
+                                <div>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Creator awards</a></li>
+                                        <li><a href="#">Creative ideas</a></li>
+                                        <li><a href="#">Refuge initiatives </a></li>
+                                        <li><a href="#">Residents </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column d-flex content-center">
+                            <div class="">
+                                <div>
+                                  <h3>Partnership</h3>
+                                </div>
+                                <div>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Brookers</a></li>
+                                        <li><a href="#">Impact coffee</a></li>
+                                        <li><a href="#">Table talk</a></li>
+                                        <li><a href="#">Push door </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script>
+        let isToggled = false
+        let elements
+        let windowHeight
+        let counter = 0
+        let submit = document.getElementById('submit')
+
+        function toggle (target) {
+            if (!isToggled) {
+                document.getElementById('sidenav').style.width = '250px'
+                document.getElementById('overlay').style.display = 'inline'
+                isToggled = true
+            } else {
+                document.getElementById('sidenav').style.width = '0'
+                document.getElementById('overlay').style.display = 'none'
+                isToggled = false
+            }
+            target.classList.toggle('change')
+        }
+
+        function untoggle () {
+            document.getElementById('sidenav').style.width = '0'
+            document.getElementById('overlay').style.display = 'none'
+            document.getElementById('hamburger-icon').classList.toggle('change')
+            isToggled = false
+        }
+
+        function execCounter () {
+            setInterval (function () {
+                counter += Math.floor(Math.random() * 100)
+                if (counter <= 1200) {
+                    let users = document.getElementById('user-counter')
+                    users.innerText = counter + '+'
+                }
+                if (counter <= 600) {
+                    let company = document.getElementById('company-counter')
+                    company.innerText = counter + '+'
+                }
+            }, 80)
+        }
+        
+        function init () {
+            elements =  document.querySelectorAll('.hidden')
+            windowHeight = window.innerHeight
+            let mediaQuery = window.matchMedia('(min-width: 768px)')
+
+            if (mediaQuery.matches) {
+                if (isToggled) {
+                    untoggle()
+                    isToggled = false
+                }
+            }
+        }
+
+        function checkPosition () {
+            let navbar = document.getElementById('header')
+
+            if (window.scrollY === 0) {
+                navbar.classList.remove('nav-scrolled')
+                
+                if (isToggled) {
+                    untoggle()
+                    isToggled = false
+                }
+            } else {
+                navbar.classList.add('nav-scrolled')
+            }
+
+            for (let i = 0; i < elements.length; i++) {
+                let element = elements[i]
+                let positionFromTop = elements[i].getBoundingClientRect().top
+
+                if (positionFromTop - windowHeight < -150) {
+                    element.classList.add('fade-in-element')
+                    element.classList.remove('hidden')
+                }
+            }
+        }
+
+        function handleSubmit (e) {
+            e.preventDefault()
+            let form = document.getElementById('form')
+
+            if (form.reportValidity()) {
+                HTMLFormElement.prototype.submit.call(form)
+            }
+        }
+
+        submit.addEventListener('click', handleSubmit)
+        window.addEventListener('scroll', checkPosition, false)
+        window.addEventListener('resize', init)
+
+        init()
+        checkPosition()
+        execCounter()
+    </script>
+    </body>
+</html>
