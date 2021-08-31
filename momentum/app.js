@@ -1,14 +1,16 @@
 // element assignments
-let timer = document.getElementById('time')
-let quote = document.getElementById('quote')
-let amPm = document.getElementById('meridiem')
-let username = document.getElementById('name')
-let focusArea = document.getElementById('focus-area')
-let addToDo = document.getElementById('todo-input')
-let mainFocus = document.getElementById('focus-today')
-let resetBtn = document.getElementById('reset-btn')
-let todoLists = document.getElementById('todo-list')
-let todoArea = document.querySelector('.todo-area')
+const timer = document.getElementById('time')
+const quote = document.getElementById('quote')
+const amPm = document.getElementById('meridiem')
+const username = document.getElementById('name')
+const focusArea = document.getElementById('focus-area')
+const addToDo = document.getElementById('todo-input')
+const mainFocus = document.getElementById('focus-today')
+const resetBtn = document.getElementById('reset-btn')
+const todoLists = document.getElementById('todo-list')
+const todoBtn = document.getElementById('todo-btn')
+const closeTodo = document.querySelector('.close-todo')
+const todoArea = document.querySelector('.todo-area')
 const label = document.querySelector('.focus-label')
 
 // variables
@@ -187,7 +189,7 @@ function showSnackbar (message, color = '#ff0000') {
 // add todo list in the ul
 function addTodoList (e) {
 
-    if (e.target.value.length > 25) {
+    if (e.target.value.length > 20) {
         e.preventDefault()
     }
 
@@ -198,7 +200,18 @@ function addTodoList (e) {
             showSnackbar('TODO list is required.')
         } else {
             todoLists.appendChild(todoListItem(e.target.value))
-            loadActionListeners()
+            let localObj = getLocalStorage()
+            let deleteBtn = document.querySelectorAll('.delete-btn')
+            let doneBtn = document.querySelectorAll('.done-btn')
+            let todo = document.querySelectorAll('.todo')
+
+            loadActionListeners(
+                doneBtn,
+                deleteBtn,
+                todo.length - 1,
+                todo,
+                localObj
+            )
 
             storageData.todo.push({
                 text: e.target.value,
@@ -244,14 +257,16 @@ function setMainFocus (e) {
             label.classList.add('fadeout')
             setTimeout(function () {
                 setElemText(label, 'Your main focus for today is')
-            }, 490)
+            }, 699)
 
             setTimeout(function () {
                 mainFocus.classList.remove('focus-padding')
             }, 1000)
+
+            resetBtn.classList.remove('hidden')
+            todoBtn.classList.remove('hidden')
             
             mainFocus.style.borderBottom = '0'
-            todoArea.classList.remove('hidden')
             mainFocus.blur()
         } else {
             showSnackbar('Main focus should not be empty.')
@@ -270,7 +285,6 @@ function setDefaultData () {
             name = localObj.name
             username.style.border = '0'
             focusArea.classList.remove('hidden')
-            resetBtn.classList.remove('hidden')
         } else {
             name = randomizer(names)
         }
@@ -281,7 +295,6 @@ function setDefaultData () {
             mainFocus.classList.remove('focus-padding')
             setElemText(mainFocus, localObj.focus)
             setElemText(label, 'Your main focus for today is')
-            todoArea.classList.remove('hidden')
         }
 
         if (localObj.todo.length) {
@@ -292,6 +305,13 @@ function setDefaultData () {
                     todo[index].classList.add('done')
                 }
             })
+        }
+
+        if (localObj.name && localObj.focus) {
+            resetBtn.classList.remove('hidden')
+            resetBtn.classList.add('fadein')
+            todoBtn.classList.remove('hidden')
+            todoBtn.classList.add('fadein')
         }
     } else {
         name = randomizer(names)
@@ -362,28 +382,41 @@ function _initActionListeners () {
     let todo = document.querySelectorAll('.todo')
 
     localObj.todo.forEach((value, index) => {
-        doneBtn[index].addEventListener('click', function () {
-            checkSelectedItem(index)
-        })
-        deleteBtn[index].addEventListener('click', function () {
-            todo[index].classList.add('fadeout')
-            deleteSelectedItem(index, localObj)
-        })
+        loadActionListeners(
+            doneBtn,
+            deleteBtn,
+            index,
+            todo,
+            localObj
+        )
     })
 }
 
 // add event listener to newly added todo item list
-function loadActionListeners () {
-    let localObj = getLocalStorage()
-    const doneBtn = document.querySelectorAll('.done-btn')
-    const deleteBtn = document.querySelectorAll('.delete-btn')
-    
-    doneBtn[doneBtn.length - 1].addEventListener('click', function () {
-        checkSelectedItem(doneBtn.length - 1)
+function loadActionListeners (doneBtn, deleteBtn, index, todo, localObj) {
+    doneBtn[index].addEventListener('click', function () {
+        checkSelectedItem(index)
     })
-    deleteBtn[deleteBtn.length - 1].addEventListener('click', function () {
-        deleteSelectedItem(deleteBtn.length - 1, localObj)
+    deleteBtn[index].addEventListener('click', function () {
+        todo[index].classList.add('fadeout')
+        deleteSelectedItem(index, localObj)
     })
+}
+
+// shows todo list container
+function showTodoList () {
+    todoBtn.classList.add('fadeout')
+    setTimeout(function () {
+        todoBtn.classList.add('hidden')
+        todoArea.classList.remove('hidden')
+    }, 500)
+}
+
+// hide todo list container
+function closeTodoList () {
+    todoArea.classList.add('hidden')
+    todoBtn.classList.remove('hidden')
+    todoBtn.classList.remove('fadeout')
 }
 
 // event listeners for elements
@@ -393,3 +426,5 @@ quote.addEventListener('keypress', setCustomQuote)
 addToDo.addEventListener('keypress', addTodoList)
 mainFocus.addEventListener('keypress', setMainFocus)
 resetBtn.addEventListener('click', resetMomentum)
+todoBtn.addEventListener('click', showTodoList)
+closeTodo.addEventListener('click', closeTodoList)

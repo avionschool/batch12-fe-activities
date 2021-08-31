@@ -16,14 +16,22 @@
     <body>
         <div id="main">
             <div class="reset-wrapper">
-                <a class="btn" href="#" id="reset-btn">
+                <a class="btn slide hidden" href="#" id="reset-btn">
                     <span>Reset</span>
                 </a>
             </div>
-            <div class="d-flex todo-area hidden">
+            <div class="todo-wrapper">
+                <a class="btn slide hidden" href="#" id="todo-btn">
+                    <span>Todo List</span>
+                </a>
+            </div>
+            <div class="d-flex todo-area hidden in-right">
                 <div class="row flex-column">
-                    <input type="text" id="todo-input" placeholder="Add TODO List">
+                    <input type="text" id="todo-input" placeholder="Enter text here . . .">
                     <ul id="todo-list"></ul>
+                </div>
+                <div class="row">
+                    <i class="fa fa-times close-todo" aria-hidden="true"></i>
                 </div>
             </div>
             <div class="d-flex">
@@ -39,20 +47,20 @@
                     <h1 id="time"></h1>
                 </div>
             </div>
-            <div class="d-flex">
+            <div class="d-flex in-down">
                 <div class="row flex-column">
                     <label id="meridiem"></label>
                     <div class="tip wrapper">
-                        <input class="username" id="name" type="text">
+                        <input autocomplete="off" class="username" id="name" type="text">
                         <span class="tiptext">Click to edit name</span>
                     </div>
                 </div>
             </div>
-            <div class="d-flex hidden" id="focus-area">
+            <div class="d-flex hidden in-left" id="focus-area">
                 <div class="row flex-column">
                     <label class="field-label focus-label">Add your main focus today</label>
                     <div class="tip wrapper">
-                        <input id="focus-today" class="focus-padding focus" type="text">
+                        <input autocomplete="off" id="focus-today" class="focus-padding focus" type="text">
                         <span class="tiptext">Click to edit todays focus</span>
                     </div>
                 </div>
