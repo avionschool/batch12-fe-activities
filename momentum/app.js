@@ -347,7 +347,7 @@ function resetMomentum () {
 }
 
 // add line through to todo list text and store todo data in local storage
-let checkSelectedItem = (index) => {
+function checkSelectedItem (index) {
     let todo = document.querySelectorAll('.todo > span:nth-child(1)')
     let localObj = getLocalStorage()
     const status = todo[index].classList.contains('done') ? 'not-done' : 'done'
