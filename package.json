@@ -1,0 +1,23 @@
+{
+  "name": "batch12-fe-activities",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ralphsulit/batch12-fe-activities.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ralphsulit/batch12-fe-activities/issues"
+  },
+  "homepage": "https://github.com/ralphsulit/batch12-fe-activities#readme",
+  "dependencies": {
+    "node-fetch": "^3.0.0"
+  }
+}

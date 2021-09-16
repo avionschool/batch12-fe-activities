@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="main.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Sign Up Form</title>
+</head>
+<body>
+  <main>
+    <!-- Left Side -->
+    <div class="left">
+      <h1 id="title" class="title">Learn to code by watching others</h1>
+      <p id="description" class="description">
+        See how experienced developers solve problems in real-time. Watching scripted tutorials is great, 
+        but understanding how developers think is invaluable. 
+      </p>
+    </div>
+    <!-- Right Side  -->
+    <div class="right">
+      <h3>
+        <span>Try it free 7 days</span>
+        then $20/mo.thereafter
+      </h3>
+      <div class="box">
+        <form id="survey-form"  class="scrollbar" action="">
+          <!-- Name -->
+          <label id="name-label" for="name">Name:</label><br>
+          <input id="name" type="text" placeholder="Name" required><br>
+          <!-- Email -->
+          <label for="email" id="email-label">Email:</label><br>
+          <input type="email" id="email" placeholder="Email" required><br>
+          <!-- Number -->
+          <label for="number" id="number-label">Number:</label><br>
+          <input type="number" id="number" placeholder="Contact" minlength="7" maxlength="12"  required><br>
+          <!-- Gender -->
+          <label for="">Gender:</label><br>
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Female</label><br>
+          <!-- Dropdown  -->
+          <label for="program">Program:</label><br>
+          <select name="program" id="dropdown">
+            <option value="fend">Frontend Developer</option>
+            <option value="bend">Backend Developer</option>
+            <option value="fstack">Fullstack Developer</option>
+          </select><br>
+          <!-- Checkbox -->
+          <label for="skills">Skills:</label><br>
+          <input type="checkbox" id="html" value="html">
+          <label for="html">HTML</label><br>
+          <input type="checkbox" id="css" value="css">
+          <label for="css">CSS</label><br>
+          <input type="checkbox" id="js" value="js">
+          <label for="js">Javascript</label><br>
+          <input type="checkbox" id="node" value="node">
+          <label for="node">Node.js</label><br>
+          <input type="checkbox" id="react" value="react">
+          <label for="react">React</label><br>
+          <input type="checkbox" id="ror" value="ror">
+          <label for="ror">Ruby on Rails</label><br>
+          <!-- Textarea -->
+          <label for="about">Tell us about yourself:</label><br>
+          <textarea name="about" id="about" cols="30" rows="10"></textarea>
+          <!-- Submit Button  -->
+          <input id="submit" type="submit" value="Claim your free trial">
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer>&copy; Copyright 2021</footer>
+</body>
+</html>

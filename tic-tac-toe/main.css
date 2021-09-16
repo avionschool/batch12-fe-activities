@@ -1,0 +1,337 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: url('img/white.jfif');
+  background-position: center center;
+  background-size: 100% 140%;
+  background-repeat: no-repeat;
+  display: flex;  
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Amatic SC',sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* **************
+Select Box
+************** */
+.select-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px 25px 25px;
+  border-radius: 5px;
+  max-width: 100%;
+  max-height: 250px;
+  width: 300px;
+  height: 100vh;
+  z-index: 100;
+  overflow: hidden;
+  transition: all 0.3s ease;
+} 
+
+.select-box.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.select-box header {
+  font-size: 3rem;
+  font-weight: 600px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.select-box .title {
+  font-size:1.5rem;
+  font-weight: 500;
+  margin: 20px 0;
+}
+
+.select-box .options {
+  display: flex;
+  width: 100%;
+}
+
+.options button {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 0;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.options button.playerX {
+  margin-right: 5px;
+  background: #fe5c5c;
+}
+
+.options button.playerO {
+  margin-left: 5px;
+  background: #ffbf00;
+}
+
+.options button:hover,
+.result-box .btn-close button:hover {
+  transform: scale(0.96);
+}
+
+/* **************
+Game Title
+************** */
+.game-title {
+  opacity: 0;
+}
+
+.game-title.show {
+  opacity: 1;
+}
+
+/* **************
+Game Container 
+************** */
+.game-container {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.game-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-container section {
+  display: flex;
+}
+
+.game-container span {
+  display: block;
+  margin: 8px;
+  height: 150px;
+  width: 150px;
+  background: #add8e6;
+  border-radius: 10px;
+  font-size: 5rem;
+  font-family: 'Glory', sans-serif;
+  text-align: center;
+  line-height: 80px;
+  color: #fff;
+}
+
+/* **************
+Cell
+************** */
+.game-container .cell {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.game-container .cell.hide {
+  pointer-events: none;
+}
+
+.cell:hover {
+  background: #333;
+}
+
+.no-click {
+  pointer-events: none;
+  cursor: default;
+}
+
+.highlight {
+  background-color: #022d36;
+}
+
+/* **************
+Play Board 
+************** */
+.play-board {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  width: 150px;
+  transform: translate(-50%, -50%) scale(-0.9);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.play-board.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.play-board .details {
+  background: #fff;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.play-board .details .players {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.players.active span:first-child {
+  color: #add8e6;
+}
+
+.players.active span:nth-child(2) {
+  color: #fff;
+  background: #ffbf00;
+}
+
+.players.active .slider {
+  left: 50%;
+}
+
+.play-board .details span {
+  color: #add8e6;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  padding: 7px 0;
+  font-size: 19px;
+  font-weight: 500;
+  font-family: 'Glory', sans-serif;
+  position: relative;
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+.details span:first-child {
+  color: #fff;
+}
+
+.details span.active {
+  color: #fff;
+  background: #fe5c5c;
+}
+
+.details .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background: #fe5c5c;
+  border-radius: 5px;
+  z-index: 2;
+  transition: all 0.1s ease;
+}
+
+/* **************
+Result Box
+************** */
+.result-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  max-height: 150px;
+  width: 100%;
+  max-width: 210px;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.result-box.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.result-box .won-text {
+  font-size: 3rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.result-box .btn-close {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.result-box .btn-close button {
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 20px;
+  border: none;
+  outline: none;
+  background: #add8e6;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 5px;
+}
+
+/* **************
+Buttons 
+************** */
+.buttons {
+  margin-top: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-in;
+}
+
+.buttons.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.buttons span {
+  margin: 0 30px;
+}
+
+.prev,
+.next,
+.reload {
+  width: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.prev:hover,
+.next:hover {
+  color: #ffbf00;
+}
+
+.reload:hover {
+  color: #fe5c5c;
+}
+
+

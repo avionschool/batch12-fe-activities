@@ -1,0 +1,44 @@
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.board {
+  border: 1px solid;
+  width: 480px;
+  height: 480px;
+  display: flex;
+  flex-wrap: wrap;  
+}
+
+.cell {
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+}
+
+.gray {
+  background: grey;
+}
+
+@media(max-width: 767px) {
+  .board {
+    width: 240px;
+    height: 240px;
+  }
+
+  .cell {
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+  }
+}
+
